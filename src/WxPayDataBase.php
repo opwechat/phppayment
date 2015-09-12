@@ -11,6 +11,7 @@ namespace Opwechat\Phppayment;
 class WxPayDataBase
 {
     protected $values = array();
+    protected $mchKey = '';
 
     /**
      * 设置签名，详见签名生成算法
@@ -39,6 +40,11 @@ class WxPayDataBase
     public function isSignSet()
     {
         return array_key_exists('sign', $this->values);
+    }
+
+    public function setMchKey($value)
+    {
+        $this->mchKey = $value;
     }
 
     /**
@@ -107,7 +113,7 @@ class WxPayDataBase
         ksort($this->values);
         $string = $this->toUrlParams();
         //签名步骤二：在string后加入KEY
-        $string = $string . "&key=" . WxPayConfig::KEY;
+        $string = $string . "&key=" . $this->mchKey;
         //签名步骤三：MD5加密
         $string = md5($string);
         //签名步骤四：所有字符转为大写
