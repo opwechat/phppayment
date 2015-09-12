@@ -20,14 +20,14 @@ class WxPayNotify extends WxPayNotifyReply
         //当返回false的时候，表示notify中调用notifyCallBack回调失败获取签名校验失败，此时直接回复失败
         $result = WxpayApi::notify(array($this, 'notifyCallBack'), $msg);
         if ($result == false) {
-            $this->SetReturn_code("FAIL");
-            $this->SetReturn_msg($msg);
+            $this->setReturnCode("FAIL");
+            $this->setReturnMsg($msg);
             $this->replyNotify(false);
             return;
         } else {
             //该分支在成功回调到notifyCallBack方法，处理完成之后流程
-            $this->SetReturn_code("SUCCESS");
-            $this->SetReturn_msg("OK");
+            $this->setReturnCode("SUCCESS");
+            $this->setReturnMsg("OK");
         }
         $this->replyNotify($needSign);
     }
@@ -60,11 +60,11 @@ class WxPayNotify extends WxPayNotifyReply
         $result = $this->notifyProcess($data, $msg);
 
         if ($result == true) {
-            $this->SetReturn_code("SUCCESS");
-            $this->SetReturn_msg("OK");
+            $this->setReturnCode("SUCCESS");
+            $this->setReturnMsg("OK");
         } else {
-            $this->SetReturn_code("FAIL");
-            $this->SetReturn_msg($msg);
+            $this->setReturnCode("FAIL");
+            $this->setReturnMsg($msg);
         }
         return $result;
     }
@@ -78,9 +78,9 @@ class WxPayNotify extends WxPayNotifyReply
     {
         //如果需要签名
         if ($needSign == true &&
-            $this->GetReturn_code($return_code) == "SUCCESS") {
-            $this->SetSign();
+            $this->getReturnCode($return_code) == "SUCCESS") {
+            $this->setSign();
         }
-        WxpayApi::replyNotify($this->ToXml());
+        WxpayApi::replyNotify($this->toXml());
     }
 }

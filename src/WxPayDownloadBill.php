@@ -13,7 +13,7 @@ class WxPayDownloadBill extends WxPayDataBase
      * 设置微信分配的公众账号ID
      * @param string $value
      **/
-    public function SetAppid($value)
+    public function setAppid($value)
     {
         $this->values['appid'] = $value;
     }
@@ -21,7 +21,7 @@ class WxPayDownloadBill extends WxPayDataBase
      * 获取微信分配的公众账号ID的值
      * @return 值
      **/
-    public function GetAppid()
+    public function getAppid()
     {
         return $this->values['appid'];
     }
@@ -29,7 +29,7 @@ class WxPayDownloadBill extends WxPayDataBase
      * 判断微信分配的公众账号ID是否存在
      * @return true 或 false
      **/
-    public function IsAppidSet()
+    public function isAppidSet()
     {
         return array_key_exists('appid', $this->values);
     }
@@ -38,7 +38,7 @@ class WxPayDownloadBill extends WxPayDataBase
      * 设置微信支付分配的商户号
      * @param string $value
      **/
-    public function SetMch_id($value)
+    public function setMchId($value)
     {
         $this->values['mch_id'] = $value;
     }
@@ -46,7 +46,7 @@ class WxPayDownloadBill extends WxPayDataBase
      * 获取微信支付分配的商户号的值
      * @return 值
      **/
-    public function GetMch_id()
+    public function getMchId()
     {
         return $this->values['mch_id'];
     }
@@ -54,7 +54,7 @@ class WxPayDownloadBill extends WxPayDataBase
      * 判断微信支付分配的商户号是否存在
      * @return true 或 false
      **/
-    public function IsMch_idSet()
+    public function isMchIdSet()
     {
         return array_key_exists('mch_id', $this->values);
     }
@@ -63,7 +63,7 @@ class WxPayDownloadBill extends WxPayDataBase
      * 设置微信支付分配的终端设备号，填写此字段，只下载该设备号的对账单
      * @param string $value
      **/
-    public function SetDevice_info($value)
+    public function setDeviceInfo($value)
     {
         $this->values['device_info'] = $value;
     }
@@ -71,7 +71,7 @@ class WxPayDownloadBill extends WxPayDataBase
      * 获取微信支付分配的终端设备号，填写此字段，只下载该设备号的对账单的值
      * @return 值
      **/
-    public function GetDevice_info()
+    public function getDeviceInfo()
     {
         return $this->values['device_info'];
     }
@@ -79,7 +79,7 @@ class WxPayDownloadBill extends WxPayDataBase
      * 判断微信支付分配的终端设备号，填写此字段，只下载该设备号的对账单是否存在
      * @return true 或 false
      **/
-    public function IsDevice_infoSet()
+    public function isDeviceInfoSet()
     {
         return array_key_exists('device_info', $this->values);
     }
@@ -88,7 +88,7 @@ class WxPayDownloadBill extends WxPayDataBase
      * 设置随机字符串，不长于32位。推荐随机数生成算法
      * @param string $value
      **/
-    public function SetNonce_str($value)
+    public function setNonceStr($value)
     {
         $this->values['nonce_str'] = $value;
     }
@@ -96,7 +96,7 @@ class WxPayDownloadBill extends WxPayDataBase
      * 获取随机字符串，不长于32位。推荐随机数生成算法的值
      * @return 值
      **/
-    public function GetNonce_str()
+    public function getNonceStr()
     {
         return $this->values['nonce_str'];
     }
@@ -104,7 +104,7 @@ class WxPayDownloadBill extends WxPayDataBase
      * 判断随机字符串，不长于32位。推荐随机数生成算法是否存在
      * @return true 或 false
      **/
-    public function IsNonce_strSet()
+    public function isNoncestrSet()
     {
         return array_key_exists('nonce_str', $this->values);
     }
@@ -113,7 +113,7 @@ class WxPayDownloadBill extends WxPayDataBase
      * 设置下载对账单的日期，格式：20140603
      * @param string $value
      **/
-    public function SetBill_date($value)
+    public function setBillDate($value)
     {
         $this->values['bill_date'] = $value;
     }
@@ -121,7 +121,7 @@ class WxPayDownloadBill extends WxPayDataBase
      * 获取下载对账单的日期，格式：20140603的值
      * @return 值
      **/
-    public function GetBill_date()
+    public function getBillDate()
     {
         return $this->values['bill_date'];
     }
@@ -129,7 +129,7 @@ class WxPayDownloadBill extends WxPayDataBase
      * 判断下载对账单的日期，格式：20140603是否存在
      * @return true 或 false
      **/
-    public function IsBill_dateSet()
+    public function isBillDateSet()
     {
         return array_key_exists('bill_date', $this->values);
     }
@@ -138,7 +138,7 @@ class WxPayDownloadBill extends WxPayDataBase
      * 设置ALL，返回当日所有订单信息，默认值SUCCESS，返回当日成功支付的订单REFUND，返回当日退款订单REVOKED，已撤销的订单
      * @param string $value
      **/
-    public function SetBill_type($value)
+    public function setBillType($value)
     {
         $this->values['bill_type'] = $value;
     }
@@ -146,7 +146,7 @@ class WxPayDownloadBill extends WxPayDataBase
      * 获取ALL，返回当日所有订单信息，默认值SUCCESS，返回当日成功支付的订单REFUND，返回当日退款订单REVOKED，已撤销的订单的值
      * @return 值
      **/
-    public function GetBill_type()
+    public function getBillType()
     {
         return $this->values['bill_type'];
     }
@@ -154,7 +154,7 @@ class WxPayDownloadBill extends WxPayDataBase
      * 判断ALL，返回当日所有订单信息，默认值SUCCESS，返回当日成功支付的订单REFUND，返回当日退款订单REVOKED，已撤销的订单是否存在
      * @return true 或 false
      **/
-    public function IsBill_typeSet()
+    public function isBillTypeSet()
     {
         return array_key_exists('bill_type', $this->values);
     }

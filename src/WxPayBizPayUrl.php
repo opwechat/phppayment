@@ -13,7 +13,7 @@ class WxPayBizPayUrl extends WxPayDataBase
      * 设置微信分配的公众账号ID
      * @param string $value
      **/
-    public function SetAppid($value)
+    public function setAppid($value)
     {
         $this->values['appid'] = $value;
     }
@@ -21,7 +21,7 @@ class WxPayBizPayUrl extends WxPayDataBase
      * 获取微信分配的公众账号ID的值
      * @return 值
      **/
-    public function GetAppid()
+    public function getAppid()
     {
         return $this->values['appid'];
     }
@@ -29,7 +29,7 @@ class WxPayBizPayUrl extends WxPayDataBase
      * 判断微信分配的公众账号ID是否存在
      * @return true 或 false
      **/
-    public function IsAppidSet()
+    public function isAppidSet()
     {
         return array_key_exists('appid', $this->values);
     }
@@ -38,7 +38,7 @@ class WxPayBizPayUrl extends WxPayDataBase
      * 设置微信支付分配的商户号
      * @param string $value
      **/
-    public function SetMch_id($value)
+    public function setMchId($value)
     {
         $this->values['mch_id'] = $value;
     }
@@ -46,7 +46,7 @@ class WxPayBizPayUrl extends WxPayDataBase
      * 获取微信支付分配的商户号的值
      * @return 值
      **/
-    public function GetMch_id()
+    public function getMchId()
     {
         return $this->values['mch_id'];
     }
@@ -54,7 +54,7 @@ class WxPayBizPayUrl extends WxPayDataBase
      * 判断微信支付分配的商户号是否存在
      * @return true 或 false
      **/
-    public function IsMch_idSet()
+    public function isMchIdSet()
     {
         return array_key_exists('mch_id', $this->values);
     }
@@ -63,7 +63,7 @@ class WxPayBizPayUrl extends WxPayDataBase
      * 设置支付时间戳
      * @param string $value
      **/
-    public function SetTime_stamp($value)
+    public function setTimeStamp($value)
     {
         $this->values['time_stamp'] = $value;
     }
@@ -71,7 +71,7 @@ class WxPayBizPayUrl extends WxPayDataBase
      * 获取支付时间戳的值
      * @return 值
      **/
-    public function GetTime_stamp()
+    public function getTimeStamp()
     {
         return $this->values['time_stamp'];
     }
@@ -79,7 +79,7 @@ class WxPayBizPayUrl extends WxPayDataBase
      * 判断支付时间戳是否存在
      * @return true 或 false
      **/
-    public function IsTime_stampSet()
+    public function isTimeStampSet()
     {
         return array_key_exists('time_stamp', $this->values);
     }
@@ -88,7 +88,7 @@ class WxPayBizPayUrl extends WxPayDataBase
      * 设置随机字符串
      * @param string $value
      **/
-    public function SetNonce_str($value)
+    public function setNonceStr($value)
     {
         $this->values['nonce_str'] = $value;
     }
@@ -96,7 +96,7 @@ class WxPayBizPayUrl extends WxPayDataBase
      * 获取随机字符串的值
      * @return 值
      **/
-    public function GetNonce_str()
+    public function getNonceStr()
     {
         return $this->values['nonce_str'];
     }
@@ -104,7 +104,7 @@ class WxPayBizPayUrl extends WxPayDataBase
      * 判断随机字符串是否存在
      * @return true 或 false
      **/
-    public function IsNonce_strSet()
+    public function isNoncestrSet()
     {
         return array_key_exists('nonce_str', $this->values);
     }
@@ -113,7 +113,7 @@ class WxPayBizPayUrl extends WxPayDataBase
      * 设置商品ID
      * @param string $value
      **/
-    public function SetProduct_id($value)
+    public function setProductId($value)
     {
         $this->values['product_id'] = $value;
     }
@@ -121,7 +121,7 @@ class WxPayBizPayUrl extends WxPayDataBase
      * 获取商品ID的值
      * @return 值
      **/
-    public function GetProduct_id()
+    public function getProductId()
     {
         return $this->values['product_id'];
     }
@@ -129,7 +129,7 @@ class WxPayBizPayUrl extends WxPayDataBase
      * 判断商品ID是否存在
      * @return true 或 false
      **/
-    public function IsProduct_idSet()
+    public function isProductIdSet()
     {
         return array_key_exists('product_id', $this->values);
     }

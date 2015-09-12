@@ -13,7 +13,7 @@ class WxPayReport extends WxPayDataBase
      * 设置微信分配的公众账号ID
      * @param string $value
      **/
-    public function SetAppid($value)
+    public function setAppid($value)
     {
         $this->values['appid'] = $value;
     }
@@ -21,7 +21,7 @@ class WxPayReport extends WxPayDataBase
      * 获取微信分配的公众账号ID的值
      * @return 值
      **/
-    public function GetAppid()
+    public function getAppid()
     {
         return $this->values['appid'];
     }
@@ -29,7 +29,7 @@ class WxPayReport extends WxPayDataBase
      * 判断微信分配的公众账号ID是否存在
      * @return true 或 false
      **/
-    public function IsAppidSet()
+    public function isAppidSet()
     {
         return array_key_exists('appid', $this->values);
     }
@@ -38,7 +38,7 @@ class WxPayReport extends WxPayDataBase
      * 设置微信支付分配的商户号
      * @param string $value
      **/
-    public function SetMch_id($value)
+    public function setMchId($value)
     {
         $this->values['mch_id'] = $value;
     }
@@ -46,7 +46,7 @@ class WxPayReport extends WxPayDataBase
      * 获取微信支付分配的商户号的值
      * @return 值
      **/
-    public function GetMch_id()
+    public function getMchId()
     {
         return $this->values['mch_id'];
     }
@@ -54,7 +54,7 @@ class WxPayReport extends WxPayDataBase
      * 判断微信支付分配的商户号是否存在
      * @return true 或 false
      **/
-    public function IsMch_idSet()
+    public function isMchIdSet()
     {
         return array_key_exists('mch_id', $this->values);
     }
@@ -63,7 +63,7 @@ class WxPayReport extends WxPayDataBase
      * 设置微信支付分配的终端设备号，商户自定义
      * @param string $value
      **/
-    public function SetDevice_info($value)
+    public function setDeviceInfo($value)
     {
         $this->values['device_info'] = $value;
     }
@@ -71,7 +71,7 @@ class WxPayReport extends WxPayDataBase
      * 获取微信支付分配的终端设备号，商户自定义的值
      * @return 值
      **/
-    public function GetDevice_info()
+    public function getDeviceInfo()
     {
         return $this->values['device_info'];
     }
@@ -79,7 +79,7 @@ class WxPayReport extends WxPayDataBase
      * 判断微信支付分配的终端设备号，商户自定义是否存在
      * @return true 或 false
      **/
-    public function IsDevice_infoSet()
+    public function isDeviceInfoSet()
     {
         return array_key_exists('device_info', $this->values);
     }
@@ -88,7 +88,7 @@ class WxPayReport extends WxPayDataBase
      * 设置随机字符串，不长于32位。推荐随机数生成算法
      * @param string $value
      **/
-    public function SetNonce_str($value)
+    public function setNonceStr($value)
     {
         $this->values['nonce_str'] = $value;
     }
@@ -96,7 +96,7 @@ class WxPayReport extends WxPayDataBase
      * 获取随机字符串，不长于32位。推荐随机数生成算法的值
      * @return 值
      **/
-    public function GetNonce_str()
+    public function getNonceStr()
     {
         return $this->values['nonce_str'];
     }
@@ -104,7 +104,7 @@ class WxPayReport extends WxPayDataBase
      * 判断随机字符串，不长于32位。推荐随机数生成算法是否存在
      * @return true 或 false
      **/
-    public function IsNonce_strSet()
+    public function isNoncestrSet()
     {
         return array_key_exists('nonce_str', $this->values);
     }
@@ -113,7 +113,7 @@ class WxPayReport extends WxPayDataBase
      * 设置上报对应的接口的完整URL，类似：https://api.mch.weixin.qq.com/pay/unifiedorder对于被扫支付，为更好的和商户共同分析一次业务行为的整体耗时情况，对于两种接入模式，请都在门店侧对一次被扫行为进行一次单独的整体上报，上报URL指定为：https://api.mch.weixin.qq.com/pay/micropay/total关于两种接入模式具体可参考本文档章节：被扫支付商户接入模式其它接口调用仍然按照调用一次，上报一次来进行。
      * @param string $value
      **/
-    public function SetInterface_url($value)
+    public function setInterfaceUrl($value)
     {
         $this->values['interface_url'] = $value;
     }
@@ -121,7 +121,7 @@ class WxPayReport extends WxPayDataBase
      * 获取上报对应的接口的完整URL，类似：https://api.mch.weixin.qq.com/pay/unifiedorder对于被扫支付，为更好的和商户共同分析一次业务行为的整体耗时情况，对于两种接入模式，请都在门店侧对一次被扫行为进行一次单独的整体上报，上报URL指定为：https://api.mch.weixin.qq.com/pay/micropay/total关于两种接入模式具体可参考本文档章节：被扫支付商户接入模式其它接口调用仍然按照调用一次，上报一次来进行。的值
      * @return 值
      **/
-    public function GetInterface_url()
+    public function getInterfaceUrl()
     {
         return $this->values['interface_url'];
     }
@@ -129,7 +129,7 @@ class WxPayReport extends WxPayDataBase
      * 判断上报对应的接口的完整URL，类似：https://api.mch.weixin.qq.com/pay/unifiedorder对于被扫支付，为更好的和商户共同分析一次业务行为的整体耗时情况，对于两种接入模式，请都在门店侧对一次被扫行为进行一次单独的整体上报，上报URL指定为：https://api.mch.weixin.qq.com/pay/micropay/total关于两种接入模式具体可参考本文档章节：被扫支付商户接入模式其它接口调用仍然按照调用一次，上报一次来进行。是否存在
      * @return true 或 false
      **/
-    public function IsInterface_urlSet()
+    public function isInterfaceUrlSet()
     {
         return array_key_exists('interface_url', $this->values);
     }
@@ -138,7 +138,7 @@ class WxPayReport extends WxPayDataBase
      * 设置接口耗时情况，单位为毫秒
      * @param string $value
      **/
-    public function SetExecute_time_($value)
+    public function setExecuteTime($value)
     {
         $this->values['execute_time_'] = $value;
     }
@@ -146,7 +146,7 @@ class WxPayReport extends WxPayDataBase
      * 获取接口耗时情况，单位为毫秒的值
      * @return 值
      **/
-    public function GetExecute_time_()
+    public function getExecuteTime()
     {
         return $this->values['execute_time_'];
     }
@@ -154,7 +154,7 @@ class WxPayReport extends WxPayDataBase
      * 判断接口耗时情况，单位为毫秒是否存在
      * @return true 或 false
      **/
-    public function IsExecute_time_Set()
+    public function isExecuteTimeSet()
     {
         return array_key_exists('execute_time_', $this->values);
     }
@@ -163,7 +163,7 @@ class WxPayReport extends WxPayDataBase
      * 设置SUCCESS/FAIL此字段是通信标识，非交易标识，交易是否成功需要查看trade_state来判断
      * @param string $value
      **/
-    public function SetReturn_code($value)
+    public function setReturnCode($value)
     {
         $this->values['return_code'] = $value;
     }
@@ -171,7 +171,7 @@ class WxPayReport extends WxPayDataBase
      * 获取SUCCESS/FAIL此字段是通信标识，非交易标识，交易是否成功需要查看trade_state来判断的值
      * @return 值
      **/
-    public function GetReturn_code()
+    public function getReturnCode()
     {
         return $this->values['return_code'];
     }
@@ -179,7 +179,7 @@ class WxPayReport extends WxPayDataBase
      * 判断SUCCESS/FAIL此字段是通信标识，非交易标识，交易是否成功需要查看trade_state来判断是否存在
      * @return true 或 false
      **/
-    public function IsReturn_codeSet()
+    public function isReturnCodeSet()
     {
         return array_key_exists('return_code', $this->values);
     }
@@ -188,7 +188,7 @@ class WxPayReport extends WxPayDataBase
      * 设置返回信息，如非空，为错误原因签名失败参数格式校验错误
      * @param string $value
      **/
-    public function SetReturn_msg($value)
+    public function setReturnMsg($value)
     {
         $this->values['return_msg'] = $value;
     }
@@ -196,7 +196,7 @@ class WxPayReport extends WxPayDataBase
      * 获取返回信息，如非空，为错误原因签名失败参数格式校验错误的值
      * @return 值
      **/
-    public function GetReturn_msg()
+    public function getReturnMsg()
     {
         return $this->values['return_msg'];
     }
@@ -204,7 +204,7 @@ class WxPayReport extends WxPayDataBase
      * 判断返回信息，如非空，为错误原因签名失败参数格式校验错误是否存在
      * @return true 或 false
      **/
-    public function IsReturn_msgSet()
+    public function isReturnMsgSet()
     {
         return array_key_exists('return_msg', $this->values);
     }
@@ -213,7 +213,7 @@ class WxPayReport extends WxPayDataBase
      * 设置SUCCESS/FAIL
      * @param string $value
      **/
-    public function SetResult_code($value)
+    public function setResultCode($value)
     {
         $this->values['result_code'] = $value;
     }
@@ -221,7 +221,7 @@ class WxPayReport extends WxPayDataBase
      * 获取SUCCESS/FAIL的值
      * @return 值
      **/
-    public function GetResult_code()
+    public function getResultCode()
     {
         return $this->values['result_code'];
     }
@@ -229,7 +229,7 @@ class WxPayReport extends WxPayDataBase
      * 判断SUCCESS/FAIL是否存在
      * @return true 或 false
      **/
-    public function IsResult_codeSet()
+    public function isResultCodeSet()
     {
         return array_key_exists('result_code', $this->values);
     }
@@ -238,7 +238,7 @@ class WxPayReport extends WxPayDataBase
      * 设置ORDERNOTEXIST—订单不存在SYSTEMERROR—系统错误
      * @param string $value
      **/
-    public function SetErr_code($value)
+    public function setErrCode($value)
     {
         $this->values['err_code'] = $value;
     }
@@ -246,7 +246,7 @@ class WxPayReport extends WxPayDataBase
      * 获取ORDERNOTEXIST—订单不存在SYSTEMERROR—系统错误的值
      * @return 值
      **/
-    public function GetErr_code()
+    public function getErrCode()
     {
         return $this->values['err_code'];
     }
@@ -254,7 +254,7 @@ class WxPayReport extends WxPayDataBase
      * 判断ORDERNOTEXIST—订单不存在SYSTEMERROR—系统错误是否存在
      * @return true 或 false
      **/
-    public function IsErr_codeSet()
+    public function isErrCodeSet()
     {
         return array_key_exists('err_code', $this->values);
     }
@@ -263,7 +263,7 @@ class WxPayReport extends WxPayDataBase
      * 设置结果信息描述
      * @param string $value
      **/
-    public function SetErr_code_des($value)
+    public function setErrCodeDes($value)
     {
         $this->values['err_code_des'] = $value;
     }
@@ -271,7 +271,7 @@ class WxPayReport extends WxPayDataBase
      * 获取结果信息描述的值
      * @return 值
      **/
-    public function GetErr_code_des()
+    public function getErrCodeDes()
     {
         return $this->values['err_code_des'];
     }
@@ -279,7 +279,7 @@ class WxPayReport extends WxPayDataBase
      * 判断结果信息描述是否存在
      * @return true 或 false
      **/
-    public function IsErr_code_desSet()
+    public function isErrCodeDesSet()
     {
         return array_key_exists('err_code_des', $this->values);
     }
@@ -288,7 +288,7 @@ class WxPayReport extends WxPayDataBase
      * 设置商户系统内部的订单号,商户可以在上报时提供相关商户订单号方便微信支付更好的提高服务质量。
      * @param string $value
      **/
-    public function SetOut_trade_no($value)
+    public function setOutTradeNo($value)
     {
         $this->values['out_trade_no'] = $value;
     }
@@ -296,7 +296,7 @@ class WxPayReport extends WxPayDataBase
      * 获取商户系统内部的订单号,商户可以在上报时提供相关商户订单号方便微信支付更好的提高服务质量。 的值
      * @return 值
      **/
-    public function GetOut_trade_no()
+    public function getOutTradeNo()
     {
         return $this->values['out_trade_no'];
     }
@@ -304,7 +304,7 @@ class WxPayReport extends WxPayDataBase
      * 判断商户系统内部的订单号,商户可以在上报时提供相关商户订单号方便微信支付更好的提高服务质量。 是否存在
      * @return true 或 false
      **/
-    public function IsOut_trade_noSet()
+    public function isOutTradeNoSet()
     {
         return array_key_exists('out_trade_no', $this->values);
     }
@@ -313,7 +313,7 @@ class WxPayReport extends WxPayDataBase
      * 设置发起接口调用时的机器IP
      * @param string $value
      **/
-    public function SetUser_ip($value)
+    public function setUserIp($value)
     {
         $this->values['user_ip'] = $value;
     }
@@ -321,7 +321,7 @@ class WxPayReport extends WxPayDataBase
      * 获取发起接口调用时的机器IP 的值
      * @return 值
      **/
-    public function GetUser_ip()
+    public function getUserIp()
     {
         return $this->values['user_ip'];
     }
@@ -329,7 +329,7 @@ class WxPayReport extends WxPayDataBase
      * 判断发起接口调用时的机器IP 是否存在
      * @return true 或 false
      **/
-    public function IsUser_ipSet()
+    public function isUserIpSet()
     {
         return array_key_exists('user_ip', $this->values);
     }
@@ -338,7 +338,7 @@ class WxPayReport extends WxPayDataBase
      * 设置系统时间，格式为yyyyMMddHHmmss，如2009年12月27日9点10分10秒表示为20091227091010。其他详见时间规则
      * @param string $value
      **/
-    public function SetTime($value)
+    public function setTime($value)
     {
         $this->values['time'] = $value;
     }
@@ -346,7 +346,7 @@ class WxPayReport extends WxPayDataBase
      * 获取系统时间，格式为yyyyMMddHHmmss，如2009年12月27日9点10分10秒表示为20091227091010。其他详见时间规则的值
      * @return 值
      **/
-    public function GetTime()
+    public function getTime()
     {
         return $this->values['time'];
     }
@@ -354,7 +354,7 @@ class WxPayReport extends WxPayDataBase
      * 判断系统时间，格式为yyyyMMddHHmmss，如2009年12月27日9点10分10秒表示为20091227091010。其他详见时间规则是否存在
      * @return true 或 false
      **/
-    public function IsTimeSet()
+    public function isTimeSet()
     {
         return array_key_exists('time', $this->values);
     }

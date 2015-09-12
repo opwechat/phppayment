@@ -16,9 +16,9 @@ class WxPayDataBase
      * 设置签名，详见签名生成算法
      * @param string $value
      **/
-    public function SetSign()
+    public function setSign()
     {
-        $sign = $this->MakeSign();
+        $sign = $this->makeSign();
         $this->values['sign'] = $sign;
         return $sign;
     }
@@ -27,7 +27,7 @@ class WxPayDataBase
      * 获取签名，详见签名生成算法的值
      * @return 值
      **/
-    public function GetSign()
+    public function getSign()
     {
         return $this->values['sign'];
     }
@@ -36,7 +36,7 @@ class WxPayDataBase
      * 判断签名，详见签名生成算法是否存在
      * @return true 或 false
      **/
-    public function IsSignSet()
+    public function isSignSet()
     {
         return array_key_exists('sign', $this->values);
     }
@@ -45,7 +45,7 @@ class WxPayDataBase
      * 输出xml字符
      * @throws WxPayException
      **/
-    public function ToXml()
+    public function toXml()
     {
         if (!is_array($this->values)
             || count($this->values) <= 0) {
@@ -69,7 +69,7 @@ class WxPayDataBase
      * @param string $xml
      * @throws WxPayException
      */
-    public function FromXml($xml)
+    public function fromXml($xml)
     {
         if (!$xml) {
             throw new WxPayException("xml数据异常！");
@@ -84,7 +84,7 @@ class WxPayDataBase
     /**
      * 格式化参数格式化成url参数
      */
-    public function ToUrlParams()
+    public function toUrlParams()
     {
         $buff = "";
         foreach ($this->values as $k => $v) {
@@ -101,11 +101,11 @@ class WxPayDataBase
      * 生成签名
      * @return 签名，本函数不覆盖sign成员变量，如要设置签名需要调用SetSign方法赋值
      */
-    public function MakeSign()
+    public function makeSign()
     {
         //签名步骤一：按字典序排序参数
         ksort($this->values);
-        $string = $this->ToUrlParams();
+        $string = $this->toUrlParams();
         //签名步骤二：在string后加入KEY
         $string = $string . "&key=" . WxPayConfig::KEY;
         //签名步骤三：MD5加密
@@ -118,7 +118,7 @@ class WxPayDataBase
     /**
      * 获取设置的值
      */
-    public function GetValues()
+    public function getValues()
     {
         return $this->values;
     }

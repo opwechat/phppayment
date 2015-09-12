@@ -13,15 +13,15 @@ class WxPayResults extends WxPayDataBase
      *
      * 检测签名
      */
-    public function CheckSign()
+    public function checkSign()
     {
         //fix异常
-        if (!$this->IsSignSet()) {
+        if (!$this->isSignSet()) {
             throw new WxPayException("签名错误！");
         }
 
-        $sign = $this->MakeSign();
-        if ($this->GetSign() == $sign) {
+        $sign = $this->makeSign();
+        if ($this->getSign() == $sign) {
             return true;
         }
         throw new WxPayException("签名错误！");
@@ -32,7 +32,7 @@ class WxPayResults extends WxPayDataBase
      * 使用数组初始化
      * @param array $array
      */
-    public function FromArray($array)
+    public function fromArray($array)
     {
         $this->values = $array;
     }
@@ -43,12 +43,12 @@ class WxPayResults extends WxPayDataBase
      * @param array $array
      * @param 是否检测签名 $noCheckSign
      */
-    public static function InitFromArray($array, $noCheckSign = false)
+    public static function initfromArray($array, $noCheckSign = false)
     {
         $obj = new self();
-        $obj->FromArray($array);
+        $obj->fromArray($array);
         if ($noCheckSign == false) {
-            $obj->CheckSign();
+            $obj->checkSign();
         }
         return $obj;
     }
@@ -59,7 +59,7 @@ class WxPayResults extends WxPayDataBase
      * @param string $key
      * @param string $value
      */
-    public function SetData($key, $value)
+    public function setData($key, $value)
     {
         $this->values[$key] = $value;
     }
@@ -69,15 +69,15 @@ class WxPayResults extends WxPayDataBase
      * @param string $xml
      * @throws WxPayException
      */
-    public static function Init($xml)
+    public static function init($xml)
     {
         $obj = new self();
-        $obj->FromXml($xml);
+        $obj->fromXml($xml);
         //fix bug 2015-06-29
         if ($obj->values['return_code'] != 'SUCCESS') {
-            return $obj->GetValues();
+            return $obj->getValues();
         }
-        $obj->CheckSign();
-        return $obj->GetValues();
+        $obj->checkSign();
+        return $obj->getValues();
     }
 }
