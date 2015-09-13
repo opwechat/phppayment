@@ -66,7 +66,7 @@ class WxPayApi
 
         $startTimeStamp = $this->getMillisecond(); //请求开始时间
         $response = $this->postXmlCurl($xml, $url, false, $timeOut);
-        $result = WxPayResults::init($response);
+        $result = WxPayResults::init($response, $this->apiConfig->mchkey);
         $this->reportCostTime($url, $startTimeStamp, $result); //上报请求花费时间
 
         return $result;
@@ -98,7 +98,7 @@ class WxPayApi
 
         $startTimeStamp = $this->getMillisecond(); //请求开始时间
         $response = $this->postXmlCurl($xml, $url, false, $timeOut);
-        $result = WxPayResults::init($response);
+        $result = WxPayResults::init($response, $this->apiConfig->mchkey);
         $this->reportCostTime($url, $startTimeStamp, $result); //上报请求花费时间
 
         return $result;
@@ -130,7 +130,7 @@ class WxPayApi
 
         $startTimeStamp = $this->getMillisecond(); //请求开始时间
         $response = $this->postXmlCurl($xml, $url, false, $timeOut);
-        $result = WxPayResults::init($response);
+        $result = WxPayResults::init($response, $this->apiConfig->mchkey);
         $this->reportCostTime($url, $startTimeStamp, $result); //上报请求花费时间
 
         return $result;
@@ -170,7 +170,7 @@ class WxPayApi
         $xml = $inputObj->toXml();
         $startTimeStamp = $this->getMillisecond(); //请求开始时间
         $response = $this->postXmlCurl($xml, $url, true, $timeOut);
-        $result = WxPayResults::init($response);
+        $result = WxPayResults::init($response, $this->apiConfig->mchkey);
         $this->reportCostTime($url, $startTimeStamp, $result); //上报请求花费时间
 
         return $result;
@@ -208,7 +208,7 @@ class WxPayApi
 
         $startTimeStamp = $this->getMillisecond(); //请求开始时间
         $response = $this->postXmlCurl($xml, $url, false, $timeOut);
-        $result = WxPayResults::init($response);
+        $result = WxPayResults::init($response, $this->apiConfig->mchkey);
         $this->reportCostTime($url, $startTimeStamp, $result); //上报请求花费时间
 
         return $result;
@@ -278,7 +278,7 @@ class WxPayApi
 
         $startTimeStamp = $this->getMillisecond(); //请求开始时间
         $response = $this->postXmlCurl($xml, $url, false, $timeOut);
-        $result = WxPayResults::init($response);
+        $result = WxPayResults::init($response, $this->apiConfig->mchkey);
         $this->reportCostTime($url, $startTimeStamp, $result); //上报请求花费时间
 
         return $result;
@@ -310,7 +310,7 @@ class WxPayApi
 
         $startTimeStamp = $this->getMillisecond(); //请求开始时间
         $response = $this->postXmlCurl($xml, $url, true, $timeOut);
-        $result = WxPayResults::init($response);
+        $result = WxPayResults::init($response, $this->apiConfig->mchkey);
         $this->reportCostTime($url, $startTimeStamp, $result); //上报请求花费时间
 
         return $result;
@@ -410,7 +410,7 @@ class WxPayApi
 
         $startTimeStamp = $this->getMillisecond(); //请求开始时间
         $response = $this->postXmlCurl($xml, $url, false, $timeOut);
-        $result = WxPayResults::init($response);
+        $result = WxPayResults::init($response, $this->apiConfig->mchkey);
         $this->reportCostTime($url, $startTimeStamp, $result); //上报请求花费时间
 
         return $result;
@@ -430,7 +430,7 @@ class WxPayApi
         $xml = $GLOBALS['HTTP_RAW_POST_DATA'];
         //如果返回成功则验证签名
         try {
-            $result = WxPayResults::init($xml);
+            $result = WxPayResults::init($xml, $this->apiConfig->mchkey);
         } catch (WxPayException $e) {
             $msg = $e->errorMessage();
             return false;
