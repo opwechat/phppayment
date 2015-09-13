@@ -9,6 +9,7 @@ namespace Opwechat\Phppayment;
  */
 class WxPayNotifyReply extends WxPayDataBase
 {
+    protected $api;
     /**
      *
      * 设置错误码 FAIL 或者 SUCCESS
