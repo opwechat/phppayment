@@ -528,6 +528,48 @@ class WxPayApi
     }
 
     /**
+     * 企业付款给用户的API
+     * 企业通过用户openid 主动给用户转账，可以应用在部分奖励、或者用户提现的场景，
+     * WxPayTransfer中partner_trade_no、openid、check_name、amount、desc参数必填
+     * appid、mchid、spbill_create_ip、nonce_str不需要填入
+     * @param WxPayWxPayMicroPay $inputObj
+     * @param int $timeOut
+     */
+    public function transferCash($inputObj, $timeOut = 10)
+    {
+        $url = "https://api.mch.weixin.qq.com/mmpaymkttransfers/promotion/transfers";
+        //检测必填参数
+        if (!$inputObj->isPartnerTradeNoSet()) {
+            throw new WxPayException("提交被扫支付API接口中，缺少必填参数partner_trade_no！");
+        } else if (!$inputObj->isOpenidSet()) {
+            throw new WxPayException("提交被扫支付API接口中，缺少必填参数opendi！");
+        } else if (!$inputObj->isCheckNameSet()) {
+            throw new WxPayException("提交被扫支付API接口中，缺少必填参数check_name！");
+        } else if (!$inputObj->isAmountSet()) {
+            throw new WxPayException("提交被扫支付API接口中，缺少必填参数amount！");
+        } else if (!$inputObj->isDescSet()) {
+            throw new WxPayException("提交被扫支付API接口中，缺少必填参数desc！");
+        } else if ($inputObj->isCheckNameSet() &&
+            $inputObj->getCheckName() != WxPayTransfer::NO_CHECK &&
+            !$inputObj->isReUserNameSet()) {
+            throw new WxPayException("提交被扫支付API接口中，缺少必填参数re_user_name！");
+        }
+
+        $inputObj->setSpbillCreateIp($_SERVER['REMOTE_ADDR']); //终端ip
+        $inputObj->setAppid($this->apiConfig->appid); //公众账号ID
+        $inputObj->setMchId($this->apiConfig->mchid); //商户号
+        $inputObj->setMchKey($this->apiConfig->mchkey); //商户密钥
+        $inputObj->setNonceStr($this->getNonceStr()); //随机字符串
+
+        $inputObj->setSign(); //签名
+        $xml = $inputObj->toXml();
+
+        $response = $this->postXmlCurl($xml, $url, true, $timeOut);
+
+        return $response;
+    }
+
+    /**
      * 以post方式提交xml到对应的接口url
      *
      * @param string $xml  需要post的xml数据
