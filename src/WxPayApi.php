@@ -542,7 +542,7 @@ class WxPayApi
         if (!$inputObj->isPartnerTradeNoSet()) {
             throw new WxPayException("提交被扫支付API接口中，缺少必填参数partner_trade_no！");
         } else if (!$inputObj->isOpenidSet()) {
-            throw new WxPayException("提交被扫支付API接口中，缺少必填参数opendi！");
+            throw new WxPayException("提交被扫支付API接口中，缺少必填参数openid！");
         } else if (!$inputObj->isCheckNameSet()) {
             throw new WxPayException("提交被扫支付API接口中，缺少必填参数check_name！");
         } else if (!$inputObj->isAmountSet()) {
