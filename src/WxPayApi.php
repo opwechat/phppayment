@@ -555,7 +555,8 @@ class WxPayApi
             throw new WxPayException("提交被扫支付API接口中，缺少必填参数re_user_name！");
         }
 
-        $inputObj->setSpbillCreateIp($_SERVER['REMOTE_ADDR']); //终端ip
+        $ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '127.0.0.1';
+        $inputObj->setSpbillCreateIp($ip); //终端ip
         $inputObj->setAppid($this->apiConfig->appid); //公众账号ID
         $inputObj->setMchId($this->apiConfig->mchid); //商户号
         $inputObj->setMchKey($this->apiConfig->mchkey); //商户密钥
