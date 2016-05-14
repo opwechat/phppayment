@@ -571,6 +571,38 @@ class WxPayApi
     }
 
     /**
+     * 发送优惠券给指定用户
+     * @param  array  $inputObj 优惠券输入信息
+     * @param  integer $timeOut  超时限制
+     */
+    public function sendCoupon($inputObj, $timeOut = 10)
+    {
+        $url = "https://api.mch.weixin.qq.com/mmpaymkttransfers/send_coupon";
+        //检测必填参数
+        if (!$inputObj->isPartnerTradeNoSet()) {
+            throw new WxPayException("提交被扫支付API接口中，缺少必填参数partner_trade_no！");
+        } else if (!$inputObj->isOpenidSet()) {
+            throw new WxPayException("提交被扫支付API接口中，缺少必填参数openid！");
+        } else if (!$inputObj->isCouponStockIdSet()) {
+            throw new WxPayException("提交被扫支付API接口中，缺少必填参数coupon_stock_id！");
+        } else if (!$inputObj->isOpenidCountSet()) {
+            throw new WxPayException("提交被扫支付API接口中，缺少必填参数openid_count！");
+        }
+
+        $inputObj->setAppid($this->apiConfig->appid); //公众账号ID
+        $inputObj->setMchId($this->apiConfig->mchid); //商户号
+        $inputObj->setMchKey($this->apiConfig->mchkey); //商户密钥
+        $inputObj->setNonceStr($this->getNonceStr()); //随机字符串
+
+        $inputObj->setSign(); //签名
+        $xml = $inputObj->toXml();
+
+        $response = $this->postXmlCurl($xml, $url, true, $timeOut);
+
+        return $response;
+    }
+
+    /**
      * 以post方式提交xml到对应的接口url
      *
      * @param string $xml  需要post的xml数据
